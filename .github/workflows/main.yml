@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-  DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  IMAGE_NAME: portfolio-terminal
-
 jobs:
   test:
     runs-on: ubuntu-latest
