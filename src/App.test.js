@@ -1,11 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// Mock the scrollIntoView method
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
+describe('PortfolioTerminal', () => {
+  test('renders welcome message', () => {
+    render(<App />);
+    expect(screen.getByText(/Welcome/i)).toBeInTheDocument();
+    expect(screen.getByText(/Type 'help'/i)).toBeInTheDocument();
+  });
 
-test('renders terminal prompt', () => {
-  render(<App />);
-  const promptElement = screen.getByText(/sinojiya@portfolio:~$/i);
-  expect(promptElement).toBeInTheDocument();
+  test('renders terminal interface', () => {
+    render(<App />);
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByTestId('terminal-footer')).toBeInTheDocument();
+  });
 });
