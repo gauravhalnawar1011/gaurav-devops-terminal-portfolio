@@ -39,7 +39,7 @@
 #         with:
 #           github_token: ${{ secrets.PORTFOLIO_CI }}
 #           publish_dir: ./build
-=============================================================
+
 # name: CI/CD Pipeline
 
 # on: [push]
@@ -74,8 +74,8 @@
 #           push: true
 #           tags: ghcr.io/manthan-sinojiya/portfolio-terminal:latest
 #           file: Dockerfile
-==============================================================
-#
+
+
 
 name: Docker Build and Push
 
