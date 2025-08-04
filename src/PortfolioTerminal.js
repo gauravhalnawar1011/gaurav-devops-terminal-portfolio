@@ -266,7 +266,7 @@ useEffect(() => {
           </form>
           <div ref={terminalEndRef} />
         </div>
-        <footer className="terminal-footer">
+<footer className="terminal-footer" data-testid="terminal-footer">
           <span className="command-prompt">{PROMPT}</span>
           <span className="timestamp">{currentTime.toLocaleString()}</span>
         </footer>
