@@ -222,7 +222,7 @@ useEffect(() => {
         <div className="holographic-card">
           <div className="holographic-inner">
             <img 
-              src="../public/profile.png" 
+              src="./profile.png" 
               alt="Manthan Sinojiya" 
               className="profile-image" 
             />
