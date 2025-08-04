@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// Mock the scrollIntoView method
+window.HTMLElement.prototype.scrollIntoView = jest.fn();
+
+test('renders terminal prompt', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const promptElement = screen.getByText(/sinojiya@portfolio:~$/i);
+  expect(promptElement).toBeInTheDocument();
 });

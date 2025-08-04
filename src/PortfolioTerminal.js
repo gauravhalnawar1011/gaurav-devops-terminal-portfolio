@@ -58,9 +58,11 @@ const PortfolioTerminal = () => {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [history]);
+useEffect(() => {
+  if (terminalEndRef.current && terminalEndRef.current.scrollIntoView) {
+    terminalEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+}, [history]);
 
   useEffect(() => {
     const handleGlobalKeyDown = (e) => {
