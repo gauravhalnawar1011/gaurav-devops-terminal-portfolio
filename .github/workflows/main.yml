@@ -45,26 +45,28 @@
 #           github_token: ${{ secrets.GITHUB_TOKEN }}
 #           publish_dir: ./build
 
-name: Docker Build and Push
+name: CI/CD Pipeline
 
-on:
-  push:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      
     steps:
       - uses: actions/checkout@v3
       
-      - name: Login to Docker Hub
+      - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-terminal:latest
+          tags: ghcr.io/${{ github.repository_owner }}/portfolio-terminal:latest
