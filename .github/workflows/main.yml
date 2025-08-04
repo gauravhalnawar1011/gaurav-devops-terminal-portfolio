@@ -58,6 +58,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Verify nginx.conf exists
+        run: |
+          ls -la
+          if [ ! -f "nginx.conf" ]; then
+            echo "nginx.conf is missing!"
+            exit 1
+          fi
+      
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
         with:
@@ -70,3 +78,4 @@ jobs:
         with:
           push: true
           tags: ghcr.io/manthan-sinojiya/portfolio-terminal:latest
+          file: Dockerfile
