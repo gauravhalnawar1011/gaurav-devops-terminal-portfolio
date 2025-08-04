@@ -5,5 +5,4 @@ import './App.css';
 function App() {
   return <PortfolioTerminal />;
 }
-
 export default App;
