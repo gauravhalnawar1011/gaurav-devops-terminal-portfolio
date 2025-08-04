@@ -1,44 +1,46 @@
-# name: Portfolio Terminal CI/CD
+name: Portfolio Terminal CI/CD
 
-# on:
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Use Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '16'
-#       - run: npm install
-#       - run: npm test
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npm test
 
-#   build-and-push:
-#     needs: test
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Login to Docker Hub
-#         uses: docker/login-action@v2
-#         with:
-#           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-#           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-#       - name: Build and push Docker image
-#         uses: docker/build-push-action@v4
-#         with:
-#           push: true
-#           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-#       - name: Deploy to GitHub Pages
-#         if: github.ref == 'refs/heads/main'
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.PORTFOLIO_CI }}
-#           publish_dir: ./build
+  build-and-push:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: portfolio-terminal
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PORTFOLIO_CI }}
+          publish_dir: ./build
 
 # name: CI/CD Pipeline
 
@@ -74,38 +76,3 @@
 #           push: true
 #           tags: ghcr.io/manthan-sinojiya/portfolio-terminal:latest
 #           file: Dockerfile
-
-
-
-name: Docker Build and Push
-
-on:
-  push:
-    branches: [ master ]
-
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-terminal:latest
-            ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-terminal:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
