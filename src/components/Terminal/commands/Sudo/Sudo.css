@@ -1,0 +1,15 @@
+.sudo-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.sudo-line {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.sudo-line:first-child {
+  color: var(--secondary);
+  font-weight: bold;
+}

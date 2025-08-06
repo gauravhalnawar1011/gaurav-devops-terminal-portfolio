@@ -1,0 +1,25 @@
+.skills-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.skills-title {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.skills-category {
+  margin: 12px 0;
+}
+
+.category-title {
+  color: var(--secondary);
+  margin: 5px 0;
+  font-size: 1.05em;
+}
+
+.category-items {
+  margin: 5px 0 5px 15px;
+  line-height: 1.5;
+}

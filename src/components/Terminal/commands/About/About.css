@@ -1,0 +1,29 @@
+.about-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.about-title {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.about-text {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-line {
+  position: relative;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-cursor {
+  position: absolute;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--cursor);
+  animation: blink 1s step-end infinite;
+}

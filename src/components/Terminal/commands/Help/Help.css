@@ -1,0 +1,23 @@
+.help-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.help-title {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.help-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.command-name {
+  color: var(--secondary);
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+}

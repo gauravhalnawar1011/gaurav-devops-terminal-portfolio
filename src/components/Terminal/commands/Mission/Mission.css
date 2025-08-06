@@ -1,0 +1,19 @@
+.mission-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.mission-title {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.mission-statement {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(0, 255, 157, 0.1);
+  border-radius: 5px;
+  font-style: italic;
+  line-height: 1.5;
+}

@@ -1,0 +1,42 @@
+.ascii-command {
+  margin: 15px 0;
+  padding-left: 10px;
+}
+
+.ascii-art {
+  color: var(--secondary);
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.2;
+  margin: 0;
+  font-size: 12px;
+}
+.ascii-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.ascii-title {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.ascii-text {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-line {
+  position: relative;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-cursor {
+  position: absolute;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--cursor);
+  animation: blink 1s step-end infinite;
+}

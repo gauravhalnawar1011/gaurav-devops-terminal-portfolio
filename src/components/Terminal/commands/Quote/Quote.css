@@ -1,0 +1,21 @@
+.quote-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.quote-text {
+  color: var(--secondary);
+  font-style: italic;
+  font-size: 1.1em;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(0, 184, 255, 0.1);
+  border-radius: 5px;
+}
+
+.quote-author {
+  text-align: right;
+  margin: 5px 20px;
+  color: #aaa;
+}

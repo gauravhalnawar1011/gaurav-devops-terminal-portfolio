@@ -1,0 +1,38 @@
+.projects-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.projects-title {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.project {
+  margin-bottom: 25px;
+}
+
+.project-name {
+  color: var(--secondary);
+  margin: 10px 0;
+}
+
+.project-details {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.project-details li {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.project-details a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.project-details a:hover {
+  text-decoration: underline;
+}

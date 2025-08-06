@@ -1,0 +1,87 @@
+[prompt]
+sinojiya@portfolio:~$
+
+[welcome]
+Welcome
+Hi, I'm Manthan Sinojiya, a DevOps Engineer.
+Welcome to my interactive portfolio terminal!
+Type 'help' to see available commands.
+
+[help]
+Available commands:
+about           - Learn about me
+projects        - View my projects
+skills          - See my technical skills
+experience      - My work experience
+contact         - How to reach me
+education       - My educational background
+certifications  - View my certifications
+clear           - Clear the terminal
+sudo            - Show my intro
+quote           - Get a motivational quote
+mission         - Show my career mission
+ascii           - Show ASCII logo
+
+[about]
+I'm Manthan Sinojiya, a passionate DevOps Engineer.
+Recent BCA graduate with practical experience in DevOps tools such as Docker, Kubernetes, and AWS. Familiar with Linux administration, version control with Git, and automating deployments via CI/CD pipelines. Eager to contribute to a fast-paced DevOps environment by learning continuously and applying cloud-native principles to deliver scalable and reliable systems. Strong foundation in scripting and modern development practices.
+
+[projects]
+1. Future Study Hub
+- Developed an Advanced E-Learning Platform: Designed and implemented a user-friendly online platform to support academic and career planning for diverse learners.
+- Scalable System Design: Designed the platform to handle high user traffic and support future scalability for additional courses and features.
+- Technologies Used: Leveraged tools and technologies such as PHP, JavaScript, Ajax, Bootstrap, MySQL, Html, CSS, etc. for seamless functionality.
+- Link: https://futurestudyhub.10001mb.com/?i=1
+- GitHub: https://github.com/Manthan-Sinojiya/Future-Study-Hub-main
+
+2. RFID-Based Campus Security System
+- Developed a Secure Identification System: Designed and implemented an RFID based platform to enhance campus security by enabling real-time student status verification and guard authentication.
+- Advanced Facial Recognition: Incorporated DeepFace for facial comparison, adding an additional layer of security by cross-verifying RFID tags with live facial scans.
+- Technologies Used: React.js, Node.js, MongoDB, Docker, and the Z11- 13.56MHz RFID Reader for a robust and scalable security solution.
+- GitHub: https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification
+
+[skills]
+Programming: PHP, JavaScript, HTML, CSS, Python
+Libraries / Frameworks: React.js, Node.js, Bootstrap, Kubernetes
+Tools / Platforms: Git, GitHub, Docker, Jenkins, AWS, GCP, Linux, Bash, CI/CD Pipeline, Postman
+Databases: MySQL, MongoDB
+Deployment: Docker Compose, Kubernetes (kubectl), GitHub Actions
+Soft Skills: Leadership, Flexibility, problem solving, Time Management, willingness to learn, Teamwork
+
+[experience]
+Intern DevOps, Nexasoft Infotech, Surat (May 2024 – July 2024)
+- Hands-on experience with Linux system administration, Docker containerization, and Kubernetes orchestration. Familiar with cloud computing concepts, including core services, deployments, and basic CI/CD workflows.
+
+[contact]
+Email: sinojiyamanthan23@gmail.com
+Phone: +91-78628 92575
+LinkedIn: https://www.linkedin.com/in/manthan-sinojiya
+GitHub: https://github.com/Manthan-Sinojiya
+
+[education]
+Uka Tarsadia University, Bardoli (2022–2025)
+Bachelor of Computer Applications (BCA)
+
+[certifications]
+- Linux for Beginners - Infosys
+- Docker Training - Infosys
+- AWS DevOps Engineer - Infosys
+
+[sudo]
+✨ Access granted ✨
+Hi, I'm Manthan Sinojiya, a DevOps Engineer.
+Welcome to advanced terminal mode.
+
+[quote]
+"Success is not the key to happiness. Happiness is the key to success." - Albert Schweitzer
+
+[mission]
+To build secure, scalable, and automated cloud solutions that empower businesses and developers.
+
+[ascii]
+ ███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗  ██╗ █████╗ ███╗   ██╗
+ ████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║  ██║██╔══██╗████╗  ██║
+ ██╔████╔██║███████║██╔██╗ ██║   ██║   ███████║███████║██╔██╗ ██║
+ ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██╔══██║██║╚██╗██║
+ ██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║██║ ╚████║
+ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝

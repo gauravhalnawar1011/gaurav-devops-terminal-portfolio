@@ -1,0 +1,67 @@
+.contact-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.contact-title {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.contact-method {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-label {
+  color: var(--secondary);
+  font-weight: bold;
+  width: 100px;
+}
+
+.contact-value {
+  margin-left: 10px;
+  color: #ccc;
+}
+
+.contact-value a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.contact-value a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.contact-command {
+  margin: 15px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary);
+}
+
+.contact-title {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.contact-text {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-line {
+  position: relative;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.typing-cursor {
+  position: absolute;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--cursor);
+  animation: blink 1s step-end infinite;
+}

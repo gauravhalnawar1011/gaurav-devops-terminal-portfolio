@@ -1,0 +1,101 @@
+/* Base terminal styles */
+:root {
+  --primary: #00ff9d;
+  --secondary: #00b8ff;
+  --text: #e0e0e0;
+  --error: #ff5555;
+  --prompt: var(--secondary);
+  --cursor: #ffff00;
+  --header-bg: rgba(10, 10, 10, 0.9);
+  --highlight: rgba(0, 255, 157, 0.1);
+}
+
+.terminal-line.command {
+  color: #ffffff;
+}
+
+.terminal-line.output {
+  color: #cccccc;
+}
+
+.terminal-line.error {
+  color: #ff5555;
+}
+
+.terminal-line.system {
+  color: #ffffff;
+}
+
+.command-text {
+  color: #ffffff;
+}
+
+.line-text {
+  white-space: pre-wrap;
+}
+
+/* Warning message styling */
+.warning-message {
+  color: var(--error);
+  background-color: rgba(255, 85, 85, 0.15);
+  padding: 10px 15px;
+  border-left: 4px solid var(--error);
+  margin: 12px 0;
+  display: block;
+  border-radius: 0 4px 4px 0;
+  font-family: 'Fira Code', monospace;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  animation: shake 0.5s ease;
+}
+
+/* Command output styling */
+.command-output {
+  margin: 8px 0;
+  padding-left: 15px;
+  border-left: 2px solid var(--primary);
+}
+
+.command-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.command-name {
+  color: var(--primary);
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+}
+
+/* Command history navigation hints */
+.command-hint {
+  color: var(--secondary);
+  font-size: 0.8em;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+
+/* Error message styling */
+.command-error {
+  color: var(--error);
+  background-color: rgba(255, 85, 85, 0.1);
+  padding: 8px 12px;
+  border-left: 3px solid var(--error);
+}
+
+/* Terminal overlay effect */
+.terminal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 184, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 184, 255, 0.03) 1px, transparent 1px);
+  background-size: 10px 10px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}

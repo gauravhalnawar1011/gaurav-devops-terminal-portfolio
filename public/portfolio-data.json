@@ -1,0 +1,42 @@
+{
+  "prompt": "sinojiya@portfolio:~$",
+  "welcomeMessage": "Welcome\nHi, I'm Manthan Sinojiya, a DevOps Engineer.\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands.",
+  "commands": {
+    "help": {
+      "output": "\nAvailable commands:\nabout           - Learn about me\nprojects        - View my projects\nskills          - See my technical skills\nexperience      - My work experience\ncontact         - How to reach me\neducation       - My educational background\ncertifications  - View my certifications\nclear           - Clear the terminal\nsudo            - Show my intro\nquote           - Get a motivational quote\nmission         - Show my career mission\nascii           - Show ASCII logo\n"
+    },
+    "about": {
+      "output": "\nI'm Manthan Sinojiya, a passionate DevOps Engineer.\nRecent BCA graduate with practical experience in DevOps tools such as Docker, Kubernetes, and AWS. Familiar with Linux administration, version control with Git, and automating deployments via CI/CD pipelines. Eager to contribute to a fast-paced DevOps environment by learning continuously and applying cloud-native principles to deliver scalable and reliable systems. Strong foundation in scripting and modern development practices."
+    },
+    "projects": {
+      "output": "\n1. Future Study Hub\n- Developed an Advanced E-Learning Platform: Designed and implemented a user-friendly online platform to support academic and career planning for diverse learners.\n- Scalable System Design: Designed the platform to handle high user traffic and support future scalability for additional courses and features.\n- Technologies Used: Leveraged tools and technologies such as PHP, JavaScript, Ajax, Bootstrap, MySQL, Html, CSS, etc. for seamless functionality.\n- Link: https://futurestudyhub.10001mb.com/?i=1\n- GitHub: https://github.com/Manthan-Sinojiya/Future-Study-Hub-main\n\n2 RFID-Based Campus Security System\n- Developed a Secure Identification System: Designed and implemented an RFID based platform to enhance campus security by enabling real-time student status verification and guard authentication.\n- Advanced Facial Recognition: Incorporated DeepFace for facial comparison, adding an additional layer of security by cross-verifying RFID tags with live facial scans.\n- Technologies Used: React.js, Node.js, MongoDB, Docker, and the Z11- 13.56MHz RFID Reader for a robust and scalable security solution.\n- GitHub: https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification"
+    },
+    "skills": {
+      "output": "\nProgramming: PHP, JavaScript, HTML, CSS, Python\nLibraries / Frameworks: React.js, Node.js, Bootstrap, Kubernetes\nTools / Platforms: Git, GitHub, Docker, Jenkins, AWS, GCP, Linux, Bash, CI/CD Pipeline, Postman\nDatabases: MySQL, MongoDB\nDeployment: Docker Compose, Kubernetes (kubectl), GitHub Actions\nSoft Skills: Leadership, Flexibility, problem solving, Time Management, willingness to learn, Teamwork"
+    },
+    "experience": {
+      "output": "\nIntern DevOps, Nexasoft Infotech, Surat (May 2024 – July 2024)\n- Hands-on experience with Linux system administration, Docker containerization, and Kubernetes orchestration. Familiar with cloud computing concepts, including core services, deployments, and basic CI/CD workflows."
+    },
+    "contact": {
+      "output": "\nEmail: sinojiyamanthan23@gmail.com\nPhone: +91-78628 92575\nLinkedIn: https://www.linkedin.com/in/manthan-sinojiya\nGitHub: https://github.com/Manthan-Sinojiya"
+    },
+    "education": {
+      "output": "\nUka Tarsadia University, Bardoli (2022–2025)\nBachelor of Computer Applications (BCA)"
+    },
+    "certifications": {
+      "output": "\n- Linux for Beginners - Infosys\n- Docker Training - Infosys\n- AWS DevOps Engineer - Infosys"
+    },
+    "sudo": {
+      "output": "\n✨ Access granted ✨\nHi, I'm Manthan Sinojiya, a DevOps Engineer.\nWelcome to advanced terminal mode."
+    },
+    "quote": {
+      "output": "\n\"Success is not the key to happiness. Happiness is the key to success.\" - Albert Schweitzer"
+    },
+    "mission": {
+      "output": "\nTo build secure, scalable, and automated cloud solutions that empower businesses and developers."
+    },
+    "ascii": {
+      "output": "\n ███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗  ██╗ █████╗ ███╗   ██╗\n ████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║  ██║██╔══██╗████╗  ██║\n ██╔████╔██║███████║██╔██╗ ██║   ██║   ███████║███████║██╔██╗ ██║\n ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██╔══██║██║╚██╗██║\n ██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║██║ ╚████║\n ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n"
+    }
+  }
+}
