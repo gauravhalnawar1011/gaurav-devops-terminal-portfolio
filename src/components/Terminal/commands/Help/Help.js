@@ -30,18 +30,20 @@ import './Help.css';
 
 const lines = [
   "Available commands:",
-  "about           - Learn about me",
-  "projects        - View my projects",
-  "skills          - See my technical skills",
-  "experience      - My work experience",
-  "contact         - How to reach me",
-  "education       - My educational background",
-  "certifications  - View my certifications",
-  "clear           - Clear the terminal",
-  "sudo            - Show my intro",
-  "quote           - Get a motivational quote",
-  "mission         - Show my career mission",
-  "ascii           - Show ASCII logo"
+  "About           - Learn about me",
+  "Projects        - View my projects",
+  "Skills          - See my technical skills",
+  "Experience      - My work experience",
+  "Contact         - How to reach me",
+  "Education       - My educational background",
+  "Certifications  - View my certifications",
+  "Sudo            - Show my intro",
+  "Quote           - Get a motivational quote",
+  "Mission         - Show my career mission",
+  "Ascii           - Show ASCII logo",
+  "Wget            - Download resume",
+  "Clear           - Clear the terminal"
+
 ];
 
 const Help = () => {

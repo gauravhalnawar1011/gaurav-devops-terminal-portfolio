@@ -42,6 +42,23 @@ const lines = [
 
 ];
 
+// Function to format a line, making links clickable
+const formatLine = (line) => {
+  const linkRegex = /^(LinkedIn:|GitHub:)\s*(.*)/;
+  const match = line.match(linkRegex);
+
+  if (match) {
+    const linkText = match[1]; // "Link:" or "GitHub:"
+    const url = match[2]; // The URL itself
+    return (
+      <>
+        {linkText} <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
+      </>
+    );
+  }
+  return line;
+};
+
 const Contact = () => {
   const [currentLine, setCurrentLine] = useState(0);
   const [typedLines, setTypedLines] = useState([]);

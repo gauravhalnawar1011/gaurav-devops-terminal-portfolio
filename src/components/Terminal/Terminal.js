@@ -661,12 +661,15 @@ import './Terminal.css';
 import './styles/animations.css';
 import './styles/holographic.css';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Physics } from '@react-three/rapier';
-import Band from './Band';
 import * as THREE from 'three';
 import profileImage from '../../profile.png';
 import wood from '../../wood.png';
+import { OrbitControls, Environment } from '@react-three/drei';
+import { Physics } from '@react-three/rapier';
+import IDCard from './idcard';
+import resumeFile from '../../Manthan_Sinojiya_Resume.pdf'; // Adjust path as needed
+import ContactForm from './commands/Contact/ContactForm';
+
 
 // Import command components
 import Help from './commands/Help/Help';
@@ -681,7 +684,6 @@ import Sudo from './commands/Sudo/Sudo';
 import Quote from './commands/Quote/Quote';
 import Mission from './commands/Mission/Mission';
 import Ascii from './commands/Ascii/Ascii';
-import IDCard from './Band';
 
 const PROMPT = 'sinojiya@portfolio:~$';
 
@@ -697,6 +699,7 @@ const PortfolioTerminal = () => {
   const [isTyping, setIsTyping] = useState(false);
   const terminalEndRef = useRef(null);
   const inputRef = useRef(null);
+  const [showContactForm, setShowContactForm] = useState(false);
    const user = { name: 'Manthan Sinojiya' };
   const nodes = {
     card: {
@@ -718,7 +721,10 @@ const PortfolioTerminal = () => {
     quote: <Quote />,
     mission: <Mission />,
     ascii: <Ascii />,
-    idcard: <IDCard />
+    idcard: <IDCard />,
+    wget: 'Download resume...',
+    'contact-form': <ContactForm onClose={() => setShowContactForm(false)} />
+
   };
 
 const simulateTyping = (text, callback) => {
@@ -777,6 +783,12 @@ const simulateTyping = (text, callback) => {
     e.preventDefault();
     const cmd = input.trim().toLowerCase();
     
+    // In your handleCommand function, add this condition:
+if (cmd === 'contact-form') {
+  setShowContactForm(true);
+  return;
+}
+
     if (cmd === 'clear') {
       setHistory([{
         text: " Welcome\n Hi, I'm Manthan Sinojiya, a Devops Engineer.\n Welcome to my interactive portfolio terminal!\n Type 'help' to see available commands.",
@@ -806,6 +818,45 @@ const simulateTyping = (text, callback) => {
 
     setInput('');
     
+    // In your handleCommand function, add this condition before the command not found check:
+if (cmd.startsWith('wget')) {
+  const filename = cmd.split(' ')[1];
+  if (filename && filename.toLowerCase().includes('resume')) {
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = resumeFile;
+    link.download = 'Manthan_Sinojiya_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    setHistory(prev => {
+      const newHistory = [...prev];
+      const typingIndex = newHistory.findIndex(item => item.type === 'typing');
+      if (typingIndex !== -1) {
+        newHistory[typingIndex] = {
+          text: 'Downloading resume...\nResume downloaded successfully!',
+          type: 'output'
+        };
+      }
+      return newHistory;
+    });
+    return;
+  } else {
+    setHistory(prev => {
+      const newHistory = [...prev];
+      const typingIndex = newHistory.findIndex(item => item.type === 'typing');
+      if (typingIndex !== -1) {
+        newHistory[typingIndex] = {
+          text: 'Error: Only resume download is supported. Use "wget resume"',
+          type: 'error'
+        };
+      }
+      return newHistory;
+    });
+    return;
+  }
+}
     if (commandComponents[cmd]) {
       simulateTyping(commandComponents[cmd], () => {
         setHistory(prev => {
@@ -916,38 +967,20 @@ const simulateTyping = (text, callback) => {
         <p>DevOps Engineer</p>
       </div>
       
-        <div className="sidebar">
-  <Canvas 
-  camera={{ 
-    position: [0, 2, 5], // Lower camera slightly
-    fov: 45 
-  }}
-  style={{ height: '400px' }}
->
-  <ambientLight intensity={0.8} /> {/* Increased ambient light */}
-  <pointLight position={[5, 5, 5]} intensity={1} /> {/* Adjusted light */}
-  <Physics gravity={[0, -9.81, 0]} timeStep="vary"> {/* Standard gravity */}
-<Band 
-  user={{
-    name: "Manthan Sinojiya",
-    title: "DevOps Engineer",
-    image: profileImage  // Make sure this is imported correctly
-  }}
-  nodes={nodes}
-  texture={wood}  // Make sure this is imported correctly
-/>  </Physics>
-  <OrbitControls 
-    enableZoom={false} 
-    minPolarAngle={Math.PI / 4}
-    maxPolarAngle={Math.PI / 2}
-    enablePan={false} // Disable panning for more controlled view
-  />
-</Canvas>
-</div>
+      <div className="sidebar">
+     <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[0, 5, 5]} intensity={1.2} />
+      <Physics gravity={[0, -9.81, 0]}>
+        <IDCard />
+      </Physics>
+    </Canvas>
+    
+      </div>
       
       <div className="terminal">
         <nav className="nav-links">
-          help | about | projects | skills | experience | contact | education | certifications | sudo | quote | mission | ascii | clear
+          Help | About | Projects | Skills | Experience | Contact | Education | Certifications | Sudo | Quote | Mission | Ascii | Wget | Clear
         </nav>
         
         <div className="terminal-body">
@@ -978,7 +1011,11 @@ const simulateTyping = (text, callback) => {
               )}
             </div>
           ))}
-          
+          {showContactForm && (
+  <div className="terminal-line">
+    <ContactForm onClose={() => setShowContactForm(false)} />
+  </div>
+)}
           <form onSubmit={handleCommand} className="command-input">
             <span className="command-prompt">{PROMPT}</span>
             <input
