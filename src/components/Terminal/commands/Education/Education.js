@@ -1,28 +1,10 @@
-// import React from 'react';
-// import './Education.css';
-
-// const Education = () => {
-//   return (
-//     <div className="education-command">
-//       <h3 className="education-title">Education</h3>
-      
-//       <div className="education-item">
-//         <h4 className="institution">Uka Tarsadia University, Bardoli</h4>
-//         <p className="degree">Bachelor of Computer Applications (BCA)</p>
-//         <p className="duration">2022–2025</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Education;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Education.css';
 
 const lines = [
-  "Uka Tarsadia University, Bardoli (2022–2025)",
-  "Bachelor of Computer Applications (BCA)"
+  "Savitribai Phule Pune University, Pune (2019–2023)",
+  "Bachelor of Engineering in Computer Engineering",
+  "CGPA: 7.69/10"
 ];
 
 const Education = () => {
@@ -30,10 +12,9 @@ const Education = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -71,7 +52,6 @@ const Education = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

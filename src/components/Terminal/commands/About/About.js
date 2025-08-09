@@ -1,37 +1,11 @@
-// import React from 'react';
-// import './About.css';
-// // import '../../styles/animations.css';
-
-// const About = () => {
-//   return (
-//     <div className="about-command">
-//       <h3 className="about-title">About Me</h3>
-//       <p className="about-text">
-//         I'm Manthan Sinojiya, a passionate DevOps Engineer.
-//       </p>
-//       <p className="about-text">
-//         Recent BCA graduate with practical experience in DevOps tools such as Docker, Kubernetes, and AWS.
-//       </p>
-//       <p className="about-text">
-//         Familiar with Linux administration, version control with Git, and automating deployments via CI/CD pipelines.
-//       </p>
-//       <p className="about-text">
-//         Eager to contribute to a fast-paced DevOps environment by learning continuously and applying cloud-native principles.
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default About;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
 
 const lines = [
-  "I'm Manthan Sinojiya, a passionate DevOps Engineer.",
-  "Recent BCA graduate with practical experience in Docker, Kubernetes, and AWS.",
-  "Familiar with Linux, Git, and CI/CD pipeline automation.",
-  "Eager to contribute and grow in a cloud-native DevOps environment."
+  "I'm Gaurav Halnawar, an AWS DevOps Engineer with 2 years of hands-on experience.",
+  "Skilled in AWS cloud, CI/CD automation, containerization, and infrastructure as code.",
+  "Proven track record in optimizing deployments, improving scalability, and reducing cloud costs.",
+  "Passionate about building reliable, high-performance systems with cloud-native technologies."
 ];
 
 const About = () => {
@@ -39,10 +13,9 @@ const About = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -80,7 +53,6 @@ const About = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

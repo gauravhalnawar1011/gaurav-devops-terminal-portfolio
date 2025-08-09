@@ -1,39 +1,39 @@
 {
-  "prompt": "sinojiya@portfolio:~$",
-  "welcomeMessage": "Welcome\nHi, I'm Manthan Sinojiya, a DevOps Engineer.\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands.",
+  "prompt": "gaurav@portfolio:~$",
+  "welcomeMessage": "Welcome\nHi, I'm Gaurav Halnawar, a DevOps Engineer.\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands.",
   "commands": {
     "help": {
       "output": "\nAvailable commands:\nabout           - Learn about me\nprojects        - View my projects\nskills          - See my technical skills\nexperience      - My work experience\ncontact         - How to reach me\neducation       - My educational background\ncertifications  - View my certifications\nclear           - Clear the terminal\nsudo            - Show my intro\nquote           - Get a motivational quote\nmission         - Show my career mission\nascii           - Show ASCII logo\n"
     },
     "about": {
-      "output": "\nI'm Manthan Sinojiya, a passionate DevOps Engineer.\nRecent BCA graduate with practical experience in DevOps tools such as Docker, Kubernetes, and AWS. Familiar with Linux administration, version control with Git, and automating deployments via CI/CD pipelines. Eager to contribute to a fast-paced DevOps environment by learning continuously and applying cloud-native principles to deliver scalable and reliable systems. Strong foundation in scripting and modern development practices."
+      "output": "\nI'm Gaurav Halnawar, a passionate DevOps Engineer.\nBCA graduate with hands-on experience in DevOps tools like Docker, Kubernetes, AWS, and CI/CD pipelines. Skilled in Linux administration, version control (Git), and scripting (Bash, Python). I thrive in cloud-native environments and aim to deliver secure, scalable, and automated solutions."
     },
     "projects": {
-      "output": "\n1. Future Study Hub\n- Developed an Advanced E-Learning Platform: Designed and implemented a user-friendly online platform to support academic and career planning for diverse learners.\n- Scalable System Design: Designed the platform to handle high user traffic and support future scalability for additional courses and features.\n- Technologies Used: Leveraged tools and technologies such as PHP, JavaScript, Ajax, Bootstrap, MySQL, Html, CSS, etc. for seamless functionality.\n- Link: https://futurestudyhub.10001mb.com/?i=1\n- GitHub: https://github.com/Manthan-Sinojiya/Future-Study-Hub-main\n\n2 RFID-Based Campus Security System\n- Developed a Secure Identification System: Designed and implemented an RFID based platform to enhance campus security by enabling real-time student status verification and guard authentication.\n- Advanced Facial Recognition: Incorporated DeepFace for facial comparison, adding an additional layer of security by cross-verifying RFID tags with live facial scans.\n- Technologies Used: React.js, Node.js, MongoDB, Docker, and the Z11- 13.56MHz RFID Reader for a robust and scalable security solution.\n- GitHub: https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification"
+      "output": "\n1. Future Study Hub\n- Advanced E-Learning Platform for academic and career planning.\n- Designed for scalability and high user traffic.\n- Technologies: PHP, JavaScript, Ajax, Bootstrap, MySQL, HTML, CSS.\n- Live: <a href='https://futurestudyhub.10001mb.com/?i=1' target='_blank'>futurestudyhub.10001mb.com</a>\n- GitHub: <a href='https://github.com/Manthan-Gaurav/Future-Study-Hub-main' target='_blank'>github.com/Manthan-Gaurav/Future-Study-Hub-main</a>\n\n2. RFID-Based Campus Security System\n- RFID-based student identification with facial recognition (DeepFace).\n- Real-time verification and secure access.\n- Technologies: React.js, Node.js, MongoDB, Docker, RFID Reader.\n- GitHub: <a href='https://github.com/Manthan-Gaurav/RFID---AI-Based-Student-Identification' target='_blank'>github.com/Manthan-Gaurav/RFID---AI-Based-Student-Identification</a>"
     },
     "skills": {
-      "output": "\nProgramming: PHP, JavaScript, HTML, CSS, Python\nLibraries / Frameworks: React.js, Node.js, Bootstrap, Kubernetes\nTools / Platforms: Git, GitHub, Docker, Jenkins, AWS, GCP, Linux, Bash, CI/CD Pipeline, Postman\nDatabases: MySQL, MongoDB\nDeployment: Docker Compose, Kubernetes (kubectl), GitHub Actions\nSoft Skills: Leadership, Flexibility, problem solving, Time Management, willingness to learn, Teamwork"
+      "output": "\nProgramming: PHP, JavaScript, HTML, CSS, Python\nFrameworks: React.js, Node.js, Bootstrap, Kubernetes\nDevOps Tools: Docker, Jenkins, GitHub Actions, Terraform, AWS, GCP\nMonitoring: New Relic, CloudWatch\nScripting: Bash, Python\nVersion Control: Git, GitHub, Bitbucket\nDatabases: MySQL, MongoDB\nSoft Skills: Leadership, Problem Solving, Time Management, Teamwork, Willingness to Learn"
     },
     "experience": {
-      "output": "\nIntern DevOps, Nexasoft Infotech, Surat (May 2024 – July 2024)\n- Hands-on experience with Linux system administration, Docker containerization, and Kubernetes orchestration. Familiar with cloud computing concepts, including core services, deployments, and basic CI/CD workflows."
+      "output": "\nIntern DevOps Engineer - Nexasoft Infotech, Surat (May 2024 – July 2024)\n- Linux system administration, Docker containerization, Kubernetes orchestration.\n- Implemented CI/CD workflows and deployment automation.\n- Hands-on with AWS services and cloud infrastructure setup."
     },
     "contact": {
-      "output": "\nEmail: sinojiyamanthan23@gmail.com\nPhone: +91-78628 92575\nLinkedIn: https://www.linkedin.com/in/manthan-sinojiya\nGitHub: https://github.com/Manthan-Sinojiya"
+      "output": "\nEmail: <a href='mailto:gauravhalnawar0506@gmail.com'>gauravhalnawar0506@gmail.com</a>\nPhone: <a href='tel:+91- 8308074216'>+91-8308074216</a>\nLinkedIn: <a href='https://www.linkedin.com/in/gaurav-halnawar' target='_blank'>linkedin.com/in/gaurav-halnawar</a>\nGitHub: <a href='https://github.com/gauravhalnawar1011' target='_blank'>github.com/gauravhalnawar1011</a>"
     },
     "education": {
-      "output": "\nUka Tarsadia University, Bardoli (2022–2025)\nBachelor of Computer Applications (BCA)"
+      "output": "\nBachelor of Computer Applications (BCA) - Uka Tarsadia University, Bardoli (2022–2025)"
     },
     "certifications": {
       "output": "\n- Linux for Beginners - Infosys\n- Docker Training - Infosys\n- AWS DevOps Engineer - Infosys"
     },
     "sudo": {
-      "output": "\n✨ Access granted ✨\nHi, I'm Manthan Sinojiya, a DevOps Engineer.\nWelcome to advanced terminal mode."
+      "output": "\n✨ Access granted ✨\nHi, I'm Gaurav Halnawar, a DevOps Engineer.\nWelcome to advanced terminal mode."
     },
     "quote": {
-      "output": "\n\"Success is not the key to happiness. Happiness is the key to success.\" - Albert Schweitzer"
+      "output": "\n\"Success is not the key to happiness. Happiness is the key to success.\" – Albert Schweitzer"
     },
     "mission": {
-      "output": "\nTo build secure, scalable, and automated cloud solutions that empower businesses and developers."
+      "output": "\nTo design and implement secure, scalable, and automated cloud solutions that enable teams to deliver faster and with confidence."
     },
     "ascii": {
       "output": "\n ███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗  ██╗ █████╗ ███╗   ██╗\n ████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║  ██║██╔══██╗████╗  ██║\n ██╔████╔██║███████║██╔██╗ ██║   ██║   ███████║███████║██╔██╗ ██║\n ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██╔══██║██║╚██╗██║\n ██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║██║ ╚████║\n ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n"

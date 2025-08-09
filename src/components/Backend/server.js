@@ -5,16 +5,20 @@ const cors = require('cors');
 
 const app = express();
 
-// Enhanced CORS
+// ✅ Enhanced CORS — allow local dev & future production
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000', // React local dev
+    'http://localhost:4200', // Angular local dev
+    // 'https://angular-portfolio-backend.onrender.com' // Replace with your deployed frontend
+  ],
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
 
-// Email Transporter
+// ✅ Email Transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   host: 'smtp.gmail.com',
@@ -26,7 +30,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Verify connection
+// ✅ Verify connection
 transporter.verify((error) => {
   if (error) {
     console.error('Mail error:', error);
@@ -35,19 +39,17 @@ transporter.verify((error) => {
   }
 });
 
-// Email Endpoint
+// ✅ Email Endpoint
 app.post('/send-email', async (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
 
-    // Validation
     if (!name || !email || !message) {
-      return res.status(400).json({ 
-        error: 'Name, email, and message are required' 
+      return res.status(400).json({
+        error: 'Name, email, and message are required'
       });
     }
 
-    // Email content
     const mailOptions = {
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.RECEIVING_EMAIL,
@@ -63,22 +65,21 @@ app.post('/send-email', async (req, res) => {
       `
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
     console.log('Email sent to:', process.env.RECEIVING_EMAIL);
     res.status(200).json({ success: true });
 
   } catch (error) {
     console.error('Send error:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to send email',
-      details: error.message 
+      details: error.message
     });
   }
 });
 
-// Start server
+// ✅ Start server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

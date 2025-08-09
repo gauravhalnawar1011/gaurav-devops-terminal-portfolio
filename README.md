@@ -1,9 +1,11 @@
+Here’s your updated README with **your repo and Docker Hub info** swapped in place of the old one:
 
+````markdown
 # Portfolio Terminal
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Manthan-Sinojiya/Portfolio/main.yml)](https://github.com/Manthan-Sinojiya/Portfolio/actions)
-[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/manthansinojiya/portfolio-terminal?label=Docker%20Image)](https://hub.docker.com/r/manthansinojiya/portfolio-terminal/tags)
-[![Docker Image Size](https://img.shields.io/docker/image-size/manthansinojiya/portfolio-terminal)](https://hub.docker.com/r/manthansinojiya/portfolio-terminal)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/gauravhalnawar1011/gaurav-devops-terminal-portfolio/main.yml)](https://github.com/gauravhalnawar1011/gaurav-devops-terminal-portfolio/actions)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/gauravhalnawar1011/devops-terminal-portfolio?label=Docker%20Image)](https://hub.docker.com/r/gauravhalnawar1011/devops-terminal-portfolio/tags)
+[![Docker Image Size](https://img.shields.io/docker/image-size/gauravhalnawar1011/devops-terminal-portfolio)](https://hub.docker.com/r/gauravhalnawar1011/devops-terminal-portfolio)
 
 An interactive terminal-style portfolio built with **React.js**, containerized using **Docker**, and powered by a **CI/CD pipeline on GitHub Actions**. Explore my DevOps skills, projects, and experience in a command-line interface format.
 
@@ -64,31 +66,35 @@ An interactive terminal-style portfolio built with **React.js**, containerized u
 
 1. **Pull the image:**
    ```bash
-   docker pull manthansinojiya/portfolio-terminal:latest
-   ```
+   docker pull gauravhalnawar1011/devops-terminal-portfolio:latest
+````
 
 2. **Run the container:**
+
    ```bash
-   docker run -p 3000:80 -d manthansinojiya/portfolio-terminal
+   docker run -p 3000:80 -d gauravhalnawar1011/devops-terminal-portfolio
    ```
 
-3. **Access the site:**  
+3. **Access the site:**
    [http://localhost:3000](http://localhost:3000)
 
 ### 🛠️ Manual Setup
 
 1. **Clone the repo:**
+
    ```bash
-   git clone https://github.com/Manthan-Sinojiya/Portfolio.git
-   cd Portfolio
+   git clone https://github.com/gauravhalnawar1011/gaurav-devops-terminal-portfolio.git
+   cd gaurav-devops-terminal-portfolio
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start development server:**
+
    ```bash
    npm start
    ```
@@ -101,26 +107,27 @@ An interactive terminal-style portfolio built with **React.js**, containerized u
 
 ### On each push to the `main` branch:
 
-- ✅ Runs unit tests  
-- 🔧 Builds and tags Docker image  
-- 📤 Pushes to Docker Hub as:
-  - `latest`
-  - `git-SHA` (commit-based version)
+* ✅ Runs unit tests
+* 🔧 Builds and tags Docker image
+* 📤 Pushes to Docker Hub as:
+
+  * `latest`
+  * `git-SHA` (commit-based version)
 
 ### Docker Hub Repository
 
-- 📦 [https://hub.docker.com/r/manthansinojiya/portfolio-terminal](https://hub.docker.com/r/manthansinojiya/portfolio-terminal)
+* 📦 [https://hub.docker.com/r/gauravhalnawar1011/devops-terminal-portfolio](https://hub.docker.com/r/gauravhalnawar1011/devops-terminal-portfolio)
 
 ---
 
 ## 🧰 Technology Stack
 
-- **Frontend**: React.js, CSS3
-- **Containerization**: Docker
-- **CI/CD**: GitHub Actions
-- **Web Server**: Nginx
-- **Container Registry**: Docker Hub
-- **Build Tool**: npm
+* **Frontend**: React.js, CSS3
+* **Containerization**: Docker
+* **CI/CD**: GitHub Actions
+* **Web Server**: Nginx
+* **Container Registry**: Docker Hub
+* **Build Tool**: npm
 
 ---
 
@@ -142,4 +149,7 @@ portfolio-terminal/
 ├── nginx.conf
 └── package.json
 ```
+
 ---
+
+```

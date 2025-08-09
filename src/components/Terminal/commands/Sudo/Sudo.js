@@ -1,24 +1,11 @@
-// import React from 'react';
-// import './Sudo.css';
-
-// const Sudo = () => {
-//   return (
-//     <div className="sudo-command">
-//       <p className="sudo-line">✨ Access granted ✨</p>
-//       <p className="sudo-line">Hi, I'm Manthan Sinojiya, a DevOps Engineer.</p>
-//       <p className="sudo-line">Welcome to advanced terminal mode.</p>
-//     </div>
-//   );
-// };
-
-// export default Sudo;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Sudo.css';  
 
 const lines = [
   "✨ Access granted ✨",
-  "Hi, I'm Manthan Sinojiya, a DevOps Engineer.",
+  "Hi, I'm Gaurav Halnawar, a DevOps Engineer with 2 years of hands-on experience.",
+  "Specialized in AWS Cloud, CI/CD automation, containerization, and infrastructure as code.",
+  "I help organizations streamline deployments, improve system reliability, and optimize cloud infrastructure.",
   "Welcome to advanced terminal mode."
 ];
 
@@ -27,10 +14,9 @@ const Sudo = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -68,7 +54,6 @@ const Sudo = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

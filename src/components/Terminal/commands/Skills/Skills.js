@@ -1,55 +1,13 @@
-// import React from 'react';
-// import './Skills.css';
-
-// const Skills = () => {
-//   return (
-//     <div className="skills-command">
-//       <h3 className="skills-title">Technical Skills</h3>
-      
-//       <div className="skills-category">
-//         <h4 className="category-title">Programming:</h4>
-//         <p className="category-items">PHP, JavaScript, HTML, CSS, Python</p>
-//       </div>
-
-//       <div className="skills-category">
-//         <h4 className="category-title">Libraries / Frameworks:</h4>
-//         <p className="category-items">React.js, Node.js, Bootstrap, Kubernetes</p>
-//       </div>
-
-//       <div className="skills-category">
-//         <h4 className="category-title">Tools / Platforms:</h4>
-//         <p className="category-items">Git, GitHub, Docker, Jenkins, AWS, GCP, Linux, Bash, CI/CD Pipeline, Postman</p>
-//       </div>
-
-//       <div className="skills-category">
-//         <h4 className="category-title">Databases:</h4>
-//         <p className="category-items">MySQL, MongoDB</p>
-//       </div>
-
-//       <div className="skills-category">
-//         <h4 className="category-title">Deployment:</h4>
-//         <p className="category-items">Docker Compose, Kubernetes (kubectl), GitHub Actions</p>
-//       </div>
-
-//       <div className="skills-category">
-//         <h4 className="category-title">Soft Skills:</h4>
-//         <p className="category-items">Leadership, Flexibility, Problem Solving, Time Management, Willingness to learn, Teamwork</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Skills;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Skills.css';
 
 const lines = [
-  "Programming: PHP, JavaScript, HTML, CSS, Python",
-  "Libraries / Frameworks: React.js, Node.js, Bootstrap, Kubernetes",
-  "Tools / Platforms: Git, GitHub, Docker, Jenkins, AWS, GCP, Linux, Bash, CI/CD Pipeline, Postman",
-  "Databases: MySQL, MongoDB\nDeployment: Docker Compose, Kubernetes (kubectl), GitHub Actions",
-  "Soft Skills: Leadership, Flexibility, problem solving, Time Management, willingness to learn, Teamwork"
+  "Cloud: AWS",
+  "DevOps Tools: Jenkins, Docker, Kubernetes, Terraform, GitHub Actions",
+  "Monitoring: New Relic, CloudWatch",
+  "Scripting: Bash, Python",
+  "Version Control: Git, GitHub, Bitbucket",
+  "Other: Linux, OpenVPN, JIRA, Slack"
 ];
 
 const Skills = () => {
@@ -57,10 +15,9 @@ const Skills = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -98,7 +55,6 @@ const Skills = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

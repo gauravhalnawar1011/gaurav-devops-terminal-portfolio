@@ -1,37 +1,3 @@
-// import React from 'react';
-// import './Projects.css';
-
-// const Projects = () => {
-//   return (
-//     <div className="projects-command">
-//       <h3 className="projects-title">My Projects</h3>
-      
-//       <div className="project">
-//         <h4 className="project-name">1. Future Study Hub</h4>
-//         <ul className="project-details">
-//           <li>Developed an Advanced E-Learning Platform</li>
-//           <li>Scalable System Design</li>
-//           <li>Technologies Used: PHP, JavaScript, Ajax, Bootstrap, MySQL</li>
-//           <li>Link: <a href="https://futurestudyhub.10001mb.com/?i=1" target="_blank" rel="noopener noreferrer">https://futurestudyhub.10001mb.com/?i=1</a></li>
-//           <li>GitHub: <a href="https://github.com/Manthan-Sinojiya/Future-Study-Hub-main" target="_blank" rel="noopener noreferrer">https://github.com/Manthan-Sinojiya/Future-Study-Hub-main</a></li>
-//         </ul>
-//       </div>
-
-//       <div className="project">
-//         <h4 className="project-name">2. RFID-Based Campus Security System</h4>
-//         <ul className="project-details">
-//           <li>Developed a Secure Identification System</li>
-//           <li>Advanced Facial Recognition with DeepFace</li>
-//           <li>Technologies Used: React.js, Node.js, MongoDB, Docker</li>
-//           <li>GitHub: <a href="https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification" target="_blank" rel="noopener noreferrer">https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification</a></li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Projects;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Projects.css';
 

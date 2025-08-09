@@ -1,30 +1,15 @@
-// import React from 'react';
-// import './Ascii.css';
-
-// const Ascii = () => {
-//   return (
-//     <div className="ascii-command">
-//       <pre className="ascii-art">
-//         {`
-//  ███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗  ██╗ █████╗ ███╗   ██╗
-//  ████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║  ██║██╔══██╗████╗  ██║
-//  ██╔████╔██║███████║██╔██╗ ██║   ██║   ███████║███████║██╔██╗ ██║
-//  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██╔══██║██║╚██╗██║
-//  ██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║██║ ╚████║
-//  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
-//         `}
-//       </pre>
-//     </div>
-//   );
-// };
-
-// export default Ascii;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Ascii.css';
 
 const lines = [
-  "\n ███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗  ██╗ █████╗ ███╗   ██╗\n ████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║  ██║██╔══██╗████╗  ██║\n ██╔████╔██║███████║██╔██╗ ██║   ██║   ███████║███████║██╔██╗ ██║\n ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██║██╔══██║██║╚██╗██║\n ██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║██║ ╚████║\n ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n"
+  `
+ ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
+██╔════╝ ██╔══██╗██║   ██║██╔══██╗██╔══██╗██║   ██║
+██║  ███╗███████║██║   ██║██████╔╝███████║██║   ██║
+██║   ██║██╔══██║██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝
+╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║ ╚████╔╝ 
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  
+  `
 ];
 
 const Ascii = () => {
@@ -32,10 +17,9 @@ const Ascii = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -47,7 +31,7 @@ const Ascii = () => {
         const timeout = setTimeout(() => {
           setCurrentText((prev) => prev + lines[currentLine][charIndex]);
           setCharIndex((prev) => prev + 1);
-        }, 20);
+        }, 5);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -55,7 +39,7 @@ const Ascii = () => {
           setCurrentText('');
           setCharIndex(0);
           setCurrentLine((prev) => prev + 1);
-        }, 500);
+        }, 300);
         return () => clearTimeout(timeout);
       }
     }
@@ -63,17 +47,15 @@ const Ascii = () => {
 
   return (
     <div className="ascii-command">
-      <h2 className="ascii-title">Ascii</h2>
       {typedLines.map((line, idx) => (
-        <div key={idx} className="typing-line">{line}</div>
+        <pre key={idx} className="typing-line">{line}</pre>
       ))}
       {currentLine < lines.length && (
-        <div className="typing-line">
+        <pre className="typing-line">
           {currentText}
           <span className="typing-cursor" />
-        </div>
+        </pre>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

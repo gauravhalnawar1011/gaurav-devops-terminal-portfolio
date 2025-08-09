@@ -1,31 +1,25 @@
-// import React from 'react';
-// import './Experience.css';
-
-// const Experience = () => {
-//   return (
-//     <div className="experience-command">
-//       <h3 className="experience-title">Work Experience</h3>
-      
-//       <div className="experience-item">
-//         <h4 className="job-title">Intern DevOps, Nexasoft Infotech, Surat</h4>
-//         <p className="job-duration">May 2024 – July 2024</p>
-//         <ul className="job-description">
-//           <li>Hands-on experience with Linux system administration, Docker containerization, and Kubernetes orchestration</li>
-//           <li>Familiar with cloud computing concepts, including core services, deployments, and basic CI/CD workflows</li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Experience;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Experience.css';
 
 const lines = [
-  "Intern DevOps, Nexasoft Infotech, Surat (May 2024 – July 2024)",
-  "- Hands-on experience with Linux system administration, Docker containerization, and Kubernetes orchestration. Familiar with cloud computing concepts, including core services, deployments, and basic CI/CD workflows."
+  // Equip9
+  "AWS DevOps Engineer, Equip9 (Oct 2023 – Present) - Pune, Maharashtra",
+  "- Reduced AWS billing by 30% by automating EC2 shutdowns, optimizing Glue jobs, and redirecting CloudWatch logs to S3.",
+  "- Rebuilt cloud infrastructure using Terraform to support modular, version-controlled deployments with zero-downtime rollouts.",
+  "- Migrated microservices to Amazon EKS, improving scalability, auto-healing, and deployment reliability.",
+  "- Implemented OpenVPN for secure access to internal resources, enhancing remote team productivity.",
+  "- Automated CI/CD pipelines using Jenkins and GitHub Actions, reducing manual deployment time by 70%.",
+  "- Created branch-per-feature strategy in Bitbucket with JIRA integration, ensuring traceable and secure changes.",
+  "- Integrated Slack for alerting, releases, and cross-team collaboration via automated notifications.",
+  "- Offloaded high-volume DB read operations to replicas and optimized search queries, improving API response times.",
+
+  // Vinsys
+  "Cloud Application Developer, Vinsys (Jun 2023 – Oct 2023) - Pune, Maharashtra",
+  "- Developed and deployed cloud-native applications on AWS emphasizing scalability, fault tolerance, and cost-efficiency.",
+  "- Built CI/CD pipelines using AWS CodePipeline and CodeDeploy to streamline releases and reduce manual effort.",
+  "- Automated infrastructure and deployments using Python and Bash, reducing provisioning time by 50%.",
+  "- Monitored applications using AWS CloudWatch and X-Ray to enhance observability and reduce downtime.",
+  "- Collaborated with cross-functional teams to implement DevOps best practices across staging and production environments."
 ];
 
 const Experience = () => {
@@ -33,10 +27,9 @@ const Experience = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -64,7 +57,7 @@ const Experience = () => {
 
   return (
     <div className="experience-command">
-      <h2 className="experience-title">Experience </h2>
+      <h2 className="experience-title">Experience</h2>
       {typedLines.map((line, idx) => (
         <div key={idx} className="typing-line">{line}</div>
       ))}
@@ -74,7 +67,6 @@ const Experience = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );

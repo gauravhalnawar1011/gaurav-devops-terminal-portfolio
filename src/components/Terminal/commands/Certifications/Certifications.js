@@ -1,29 +1,10 @@
-// import React from 'react';
-// import './Certifications.css';
-
-// const Certifications = () => {
-//   return (
-//     <div className="certifications-command">
-//       <h3 className="certifications-title">Certifications</h3>
-      
-//       <ul className="certifications-list">
-//         <li>Linux for Beginners - Infosys</li>
-//         <li>Docker Training - Infosys</li>
-//         <li>AWS DevOps Engineer - Infosys</li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Certifications;
-
 import React, { useState, useEffect, useRef } from 'react';
 import './Certifications.css';
 
 const lines = [
-"- Linux for Beginners - Infosys",
-"- Docker Training - Infosys",
-"- AWS DevOps Engineer - Infosys"
+  "- AWS Certified Solutions Architect – Associate",
+  "- AWS Certified DevOps Engineer – Professional",
+  "- AWS Certified Cloud Practitioner"
 ];
 
 const Certifications = () => {
@@ -31,10 +12,9 @@ const Certifications = () => {
   const [typedLines, setTypedLines] = useState([]);
   const [currentText, setCurrentText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
-  const scrollRef = useRef(null); // ✅ Scroll target ref
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to bottom when new content is typed
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -62,7 +42,7 @@ const Certifications = () => {
 
   return (
     <div className="certification-command">
-      <h2 className="certification-title">Certification</h2>
+      <h2 className="certification-title">Certifications</h2>
       {typedLines.map((line, idx) => (
         <div key={idx} className="typing-line">{line}</div>
       ))}
@@ -72,7 +52,6 @@ const Certifications = () => {
           <span className="typing-cursor" />
         </div>
       )}
-      {/* ✅ Dummy element to scroll into view */}
       <div ref={scrollRef} />
     </div>
   );
