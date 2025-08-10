@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "Portfolio",
+  "homepage": ".",
   "dependencies": {
     "@react-spring/three": "^10.0.1",
     "@react-spring/web": "^10.0.1",
