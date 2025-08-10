@@ -67,7 +67,7 @@
 .header-bar p {
   margin: 5px 0 0;
   font-size: 14px;
-  color: var(--secondary);
+  color: grey;
 }
 
 .nav-links {

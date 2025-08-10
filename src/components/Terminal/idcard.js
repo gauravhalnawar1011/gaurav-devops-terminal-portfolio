@@ -7,16 +7,17 @@ import {
   MeshPhysicalMaterial,
   Vector3,
   CatmullRomCurve3,
-  Quaternion,
-  PlaneGeometry,
-  MeshStandardMaterial
+  Quaternion
 } from 'three';
 import { Html, Line } from '@react-three/drei';
 import { RigidBody, BallCollider, CuboidCollider, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 
-// Import image assets
+
+// Import image assets: supply your own paths!
 import profile from '../../profile.png';
+// import logo from '../../components/assest/logo-1.png';
 import background from '../../image.png';
+
 
 export default function ThreeDIdCard() {
   const card = useRef();
@@ -26,31 +27,37 @@ export default function ThreeDIdCard() {
   const j3 = useRef();
   const clip = useRef();
 
+
   const [hovered, setHovered] = useState(false);
   const [dragged, setDragged] = useState(false);
   const [targetRotationY, setTargetRotationY] = useState(0);
   const [currentRotationY, setCurrentRotationY] = useState(0);
 
+
   const profileTexture = useLoader(TextureLoader, profile);
   // const logoTexture = useLoader(TextureLoader, logo);
   const woodTexture = useLoader(TextureLoader, background);
+
 
   const { gl, camera } = useThree();
   const [curve] = useState(() => new CatmullRomCurve3([
     new Vector3(0, 4, 0), new Vector3(0, 3, 0), new Vector3(0, 2, 0), new Vector3(0, 0, 0)
   ]));
 
+
   const woodMaterial = useMemo(() => new MeshPhysicalMaterial({
     map: woodTexture,
-    clearcoat: hovered ? 1.0 : 0.8,
-    clearcoatRoughness: hovered ? 0.05 : 0.1,
-    roughness: hovered ? 0.3 : 0.4,
-    metalness: hovered ? 0.1 : 0.05,
-    reflectivity: 0.5,
+    clearcoat: hovered ? 1.0 : 0.9,
+    clearcoatRoughness: hovered ? 0.05 : 0.15,
+    roughness: hovered ? 0.37 : 0.45,
+    metalness: hovered ? 0.07 : 0.04,
+    reflectivity: 0.33,
     normalMap: woodTexture,
-    normalScale: new Vector3(0.5, 0.5, 0.5),
+    normalScale: new Vector3(0.18, 0.18, 0.18),
   }), [hovered, woodTexture]);
 
+
+  // Card dimensions and shape (rounded corners)
   const cardWidth = 2.5;
   const cardHeight = 3.5;
   const cornerRadius = 0.15;
@@ -65,6 +72,7 @@ export default function ThreeDIdCard() {
   shape.lineTo(-cardWidth / 2, -cardHeight / 2 + cornerRadius);
   shape.quadraticCurveTo(-cardWidth / 2, -cardHeight / 2, -cardWidth / 2 + cornerRadius, -cardHeight / 2);
 
+
   const cardExtrudeSettings = {
     steps: 2,
     depth: 0.1,
@@ -75,10 +83,11 @@ export default function ThreeDIdCard() {
   };
   const cardGeometry = new ExtrudeGeometry(shape, cardExtrudeSettings);
 
+
+  // Hook (clip) geometry for card attachment
   const hookClipWidth = 0.5;
   const hookClipHeight = 0.7;
   const hookClipThickness = 0.1;
-
   const hookShape = new Shape();
   hookShape.moveTo(-hookClipWidth / 2, -hookClipHeight / 2);
   hookShape.lineTo(-hookClipWidth / 2, hookClipHeight / 2);
@@ -86,18 +95,15 @@ export default function ThreeDIdCard() {
   hookShape.quadraticCurveTo(hookClipWidth / 2, hookClipHeight * 0.75, hookClipWidth / 2, hookClipHeight / 2);
   hookShape.lineTo(hookClipWidth / 2, -hookClipHeight / 2);
   hookShape.lineTo(0, -hookClipHeight / 2);
-
-  const hookExtrudeSettings = {
-    steps: 1,
-    depth: hookClipThickness,
-    bevelEnabled: false,
-  };
+  const hookExtrudeSettings = { steps: 1, depth: hookClipThickness, bevelEnabled: false };
   const clipGeometry = new ExtrudeGeometry(hookShape, hookExtrudeSettings);
+
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, clip, [[0, 0, 0], [0, 0.2, 0]]);
+
 
   const vec = new Vector3();
   const dir = new Vector3();
@@ -105,11 +111,15 @@ export default function ThreeDIdCard() {
   const rot = new Vector3();
   const targetPos = new Vector3();
 
+
   const [points, setPoints] = useState(curve.getPoints(32));
 
+
+  // Default rotation
   useEffect(() => {
     setTargetRotationY(0);
   }, []);
+
 
   useEffect(() => {
     if (dragged) {
@@ -121,9 +131,9 @@ export default function ThreeDIdCard() {
     }
   }, [dragged, hovered, gl]);
 
+
   useFrame((state, delta) => {
     if (!card.current || !j1.current || !j2.current || !j3.current || !fixed.current || !clip.current) return;
-
     const lerpSpeed = 0.1;
     setCurrentRotationY((prev) => {
       const next = prev + (targetRotationY - prev) * lerpSpeed * delta * 60;
@@ -134,6 +144,8 @@ export default function ThreeDIdCard() {
       return next;
     });
 
+
+    // Tilt by pointer position if hovered
     if (hovered && !dragged && clip.current && clip.current.type === 'kinematicPosition') {
       const mouseX = (state.pointer.x * Math.PI) / 8;
       const mouseY = (state.pointer.y * Math.PI) / 8;
@@ -150,6 +162,8 @@ export default function ThreeDIdCard() {
       clip.current.setNextKinematicRotation(interpolatedQuat);
     }
 
+
+    // Card dragging
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(camera);
       dir.copy(vec).sub(camera.position).normalize();
@@ -173,13 +187,16 @@ export default function ThreeDIdCard() {
       }
     }
 
+
+    // Rope follows physics joints
     curve.points[0].copy(j3.current.translation());
     curve.points[1].copy(j2.current.translation());
     curve.points[2].copy(j1.current.translation());
     curve.points[3].copy(fixed.current.translation());
-    
     setPoints(curve.getPoints(32));
 
+
+    // Dampen rotation
     if (clip.current) {
       ang.copy(clip.current.angvel());
       rot.copy(clip.current.rotation());
@@ -191,15 +208,17 @@ export default function ThreeDIdCard() {
     }
   });
 
+
   return (
     <group>
       <Line
         points={points}
         color="#808080"
         lineWidth={2}
-        transparent={true}
+        transparent
         opacity={0.85}
       />
+
 
       <RigidBody ref={fixed} type="fixed" position={[0, 4, 0]} />
       <RigidBody ref={j1} position={[0, 3, 0]}>
@@ -212,6 +231,7 @@ export default function ThreeDIdCard() {
         <BallCollider args={[0.1]} />
       </RigidBody>
 
+
       <RigidBody
         ref={clip}
         type={dragged ? 'kinematicPosition' : 'dynamic'}
@@ -223,7 +243,7 @@ export default function ThreeDIdCard() {
         <mesh geometry={clipGeometry}>
           <meshStandardMaterial color="#c0c0c0" />
         </mesh>
-        
+        {/* The Card Group */}
         <group
           ref={card}
           position={[0, -2, cardExtrudeSettings.depth / 2]}
@@ -240,38 +260,28 @@ export default function ThreeDIdCard() {
           onPointerOver={() => !dragged && setHovered(true)}
           onPointerOut={() => !dragged && setHovered(false)}
         >
+          {/* Physics collider for card body */}
           <CuboidCollider args={[cardWidth / 2, cardHeight / 2, cardExtrudeSettings.depth / 2]} />
+          {/* Wood material background */}
           <mesh geometry={cardGeometry}>
             <meshPhysicalMaterial {...woodMaterial} />
           </mesh>
+          {/* PROFILE PHOTO with printable border (3:4 aspect) */}
+          <mesh position={[0, 0.65, cardExtrudeSettings.depth / 2 + 0.01]}>
+            {/* White border behind photo */}
+            <planeGeometry args={[1.24, 1.64]} />
+            <meshStandardMaterial color="#ffffffff" />
+          </mesh>
+          <mesh position={[0, -.65, cardExtrudeSettings.depth / 2 + 0.2]}>
+            <planeGeometry args={[1.5, 2]} />
+            <meshStandardMaterial map={profileTexture} transparent color="#ffffffff"  />
+          </mesh>
 
-          <>
-            <mesh position={[0, 0, cardExtrudeSettings.depth / 2 + .5]}>
-              <planeGeometry args={[2 , 2]} />
-              <meshStandardMaterial map={profileTexture} color='white' />
-            </mesh>
-            {/* <mesh position={[-0.9, 1.4, cardExtrudeSettings.depth / 2 + 0.2]}>
-              <planeGeometry args={[0.5, 0.5]} />
-              <meshStandardMaterial map={logoTexture} transparent />
-            </mesh> */}
-            <Html
-              position={[0.8, -1.2, cardExtrudeSettings.depth / 2 + 0.003]}
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                fontSize: '0.3rem',
-                fontFamily: 'Arial',
-                padding: '0.1rem 0.2rem',
-                borderRadius: '0.1rem',
-                letterSpacing: '0.05rem',
-                textShadow: '0 0 5px black'
-              }}
-            >
-              <div></div>
-            </Html>
-          </>
         </group>
       </RigidBody>
     </group>
   );
 }
+
+
+

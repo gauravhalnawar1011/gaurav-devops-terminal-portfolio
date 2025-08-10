@@ -1,25 +1,43 @@
-/* Base terminal styles */
+/* ========================================= */
+/* BASE STYLES - Mobile First (Up to 768px)  */
+/* ========================================= */
+
+:root {
+  --card-bg: #2a2a2a;
+  --primary-color: #00ff9d;
+  --secondary-color: #00b8ff;
+  --text-color: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .terminal-container {
   display: flex;
+  flex-direction: column; /* Mobile-first: column layout */
   height: 100vh;
   width: 100%;
   overflow: hidden;
   position: relative;
-  color: #e0e0e0;
   font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .header-bar {
   position: fixed;
   top: 0;
   width: 100%;
-  /* background: rgba(10, 10, 10, 0.9); */
-  color: #00ff9d;
-  padding: 12px 25px;
+  color: var(--primary-color);
+  padding: 12px 20px;
   text-align: left;
-  border-bottom: 1px solid #00ff9d;
+  border-bottom: 1px solid var(--primary-color);
   z-index: 10;
   backdrop-filter: blur(5px);
+  background-color: rgba(26, 26, 26, 0.7);
 }
 
 .header-bar h4 {
@@ -32,35 +50,20 @@
 .header-bar p {
   margin: 5px 0 0;
   font-size: 14px;
-  color: #00b8ff;
+  color: var(--secondary-color);
 }
 
 .sidebar {
-  width: 30%;
-  background-color: var(--card-bg);
-  padding: 100px 25px 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 1px solid rgba(0, 255, 157, 0.3);
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  display: none; /* Hide sidebar on mobile by default */
 }
+
 .terminal {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 120px 30px 30px;
+  padding: 80px 20px 20px; /* Adjust padding for mobile */
   overflow-y: auto;
-}
-
-.nav-links {
-  margin-bottom: 15px;
-  font-weight: 500;
-  border-bottom: 1px solid #00ff9d;
-  padding-bottom: 8px;
-  color: #00b8ff;
-  font-size: 14px;
-  opacity: 0.8;
+  width: 100%;
 }
 
 .terminal-body {
@@ -82,12 +85,12 @@
   background: rgba(0, 0, 0, 0.2);
   padding: 8px 12px;
   border-radius: 4px;
-  border-left: 3px solid #00ff9d;
+  border-left: 3px solid var(--primary-color);
 }
 
 .command-prompt {
   margin-right: 10px;
-  color: #00b8ff;
+  color: var(--secondary-color);
   font-weight: bold;
   white-space: nowrap;
 }
@@ -97,10 +100,10 @@
   background-color: transparent;
   border: none;
   outline: none;
-  color: #e0e0e0;
+  color: var(--text-color);
   font-family: inherit;
   font-size: 16px;
-  caret-color: #ffff00;
+  /* caret-color: #ffff00; */
   min-width: 200px;
 }
 
@@ -111,7 +114,7 @@
   padding-top: 10px;
   border-top: 1px solid rgba(0, 255, 157, 0.3);
   margin-top: 15px;
-  color: #00b8ff;
+  color: var(--secondary-color);
 }
 
 .timestamp {
@@ -139,25 +142,48 @@
 }
 
 .terminal::-webkit-scrollbar-thumb {
-  background: #00ff9d;
+  background: var(--primary-color);
   border-radius: 4px;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* ========================================= */
+/* TABLET STYLES (769px to 1024px) */
+/* ========================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
   .terminal-container {
-    flex-direction: column;
+    flex-direction: row; /* Switch to horizontal layout */
   }
-  
+
   .sidebar {
-    width: 100%;
-    padding: 80px 20px 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
+    display: flex; /* Show the sidebar on tablets */
+    width: 35%;
+    padding: 100px 20px 20px;
+    border-right: 1px solid rgba(0, 255, 157, 0.3);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
   }
-  
+
   .terminal {
-    padding: 20px;
+    padding: 100px 25px 25px;
   }
 }
 
+/* ========================================= */
+/* DESKTOP STYLES (1025px and up) */
+/* ========================================= */
+@media (min-width: 1025px) {
+  .terminal-container {
+    flex-direction: row; /* Horizontal layout for desktops */
+  }
+
+  .sidebar {
+    display: flex;
+    width: 30%;
+    padding: 100px 25px 25px;
+    border-right: 1px solid rgba(0, 255, 157, 0.3);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .terminal {
+    padding: 120px 30px 30px;
+  }
+}

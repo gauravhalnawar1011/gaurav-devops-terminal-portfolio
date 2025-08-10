@@ -126,9 +126,10 @@ const ContactForm = ({ onClose }) => {
           />
         </div>
         
-        <button type="submit" disabled={isSubmitting}>
+        <button type="submit" className="send-btn" disabled={isSubmitting}>
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
+
         
         {submitMessage && (
           <div className={submitMessage.startsWith('✓') ? 'success' : 'error'}>
@@ -136,6 +137,8 @@ const ContactForm = ({ onClose }) => {
           </div>
         )}
       </form>
+
+
     </div>
   );
 };

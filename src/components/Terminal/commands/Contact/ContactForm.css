@@ -1,39 +1,84 @@
+/*
+ * Full CSS for an interactive and modern contact form.
+ * The design incorporates a subtle glassmorphism effect,
+ * smooth transitions, and keyframe animations for a dynamic feel.
+ * This approach aligns with a modern development style, focusing on
+ * performance and user experience.
+ */
+
+/* ========================================================= */
+/* --- Keyframe Animations --- */
+/* ========================================================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================= */
+/* --- Base Form Styles --- */
+/* ========================================================= */
+
 .contact-form-container {
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 1px solid #00ff00;
-  padding: 1rem;
-  margin: 1rem 0;
-  color: #00ff00;
-  font-family: 'Courier New', monospace;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
   max-width: 600px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .contact-form-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #00ff00;
-  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+}
+
+.contact-form-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .close-form-btn {
   background: none;
-  border: 1px solid #00ff00;
-  color: #00ff00;
+  border: none;
+  color: #fff;
   cursor: pointer;
-  padding: 0 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .close-form-btn:hover {
-  background-color: rgba(0, 255, 0, 0.2);
+  transform: rotate(90deg);
+  opacity: 1;
 }
 
 .terminal-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
+
+/* ========================================================= */
+/* --- Form Elements --- */
+/* ========================================================= */
 
 .form-group {
   display: flex;
@@ -42,54 +87,95 @@
 }
 
 .form-group label {
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
 .form-group input,
 .form-group textarea {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #00ff00;
-  color: #00ff00;
-  padding: 0.5rem;
-  font-family: 'Courier New', monospace;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #00bcd4;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .form-group textarea {
   resize: vertical;
+  min-height: 120px;
 }
 
-.submit-btn {
-  background-color: rgba(0, 255, 0, 0.2);
-  border: 1px solid #00ff00;
-  color: #00ff00;
-  padding: 0.5rem;
+/* ========================================================= */
+/* --- Send Button --- */
+/* ========================================================= */
+
+.send-btn {
+  background: linear-gradient(45deg, #00bcd4, #00a8c4);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
+  font-family: inherit;
+  font-size: 1rem;
   font-weight: bold;
-  margin-top: 0.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
 }
 
-.submit-btn:hover {
-  background-color: rgba(0, 255, 0, 0.3);
+.send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.6);
 }
 
-.submit-btn:disabled {
-  opacity: 0.5;
+.send-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 188, 212, 0.4);
+  background: linear-gradient(45deg, #00a8c4, #00bcd4);
+}
+
+.send-btn:disabled {
+  background: #555;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
 }
+
+/* ========================================================= */
+/* --- Submission Messages --- */
+/* ========================================================= */
 
 .submit-message {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border: 1px solid;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
 }
 
 .submit-message.success {
-  border-color: #00ff00;
-  color: #00ff00;
+  background-color: rgba(0, 188, 212, 0.2);
+  border: 1px solid #00bcd4;
+  color: #00bcd4;
 }
 
 .submit-message.error {
-  border-color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 1px solid #ff0000;
   color: #ff0000;
 }

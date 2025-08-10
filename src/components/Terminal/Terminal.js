@@ -140,6 +140,12 @@ if (cmd === 'contact-form') {
       return;
     }
 
+        if (cmd === 'contact-form') {
+      setShowContactForm(true);
+      setInput(''); // Clear the command line immediately
+      return;
+    }
+
     if (!cmd) return;
 
     setCommandHistory(prev => [...prev, cmd]);
@@ -358,6 +364,16 @@ if (cmd.startsWith('wget')) {
     <ContactForm onClose={() => setShowContactForm(false)} />
   </div>
 )}
+
+          {showContactForm && (
+            <div className="terminal-line">
+              <ContactForm onClose={() => {
+                setShowContactForm(false);
+                setInput(''); // Clear the command line
+                setTimeout(() => inputRef.current?.focus(), 100); // Refocus with slight delay
+              }} />
+            </div>
+          )}
           <form onSubmit={handleCommand} className="command-input">
             <span className="command-prompt">{PROMPT}</span>
             <input

@@ -2,18 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Projects.css';
 
 const lines = [
-  "1. Future Study Hub",
-  "- Developed an Advanced E-Learning Platform: Designed and implemented a user-friendly online platform to support academic and career planning for diverse learners.",
-"- Scalable System Design: Designed the platform to handle high user traffic and support future scalability for additional courses and features.",
-"- Technologies Used: Leveraged tools and technologies such as PHP, JavaScript, Ajax, Bootstrap, MySQL, Html, CSS, etc. for seamless functionality.",
-"- Link: https://futurestudyhub.10001mb.com/?i=1",
-"- GitHub: https://github.com/Manthan-Sinojiya/Future-Study-Hub-main\n",
+//   "1. Future Study Hub",
+//   "- Developed an Advanced E-Learning Platform: Designed and implemented a user-friendly online platform to support academic and career planning for diverse learners.",
+// "- Scalable System Design: Designed the platform to handle high user traffic and support future scalability for additional courses and features.",
+// "- Technologies Used: Leveraged tools and technologies such as PHP, JavaScript, Ajax, Bootstrap, MySQL, Html, CSS, etc. for seamless functionality.",
+// "- Link: https://futurestudyhub.10001mb.com/?i=1",
+// "- GitHub: https://github.com/Manthan-Sinojiya/Future-Study-Hub-main\n",
 
-"2 RFID-Based Campus Security System",
-"- Developed a Secure Identification System: Designed and implemented an RFID based platform to enhance campus security by enabling real-time student status verification and guard authentication.",
-"- Advanced Facial Recognition: Incorporated DeepFace for facial comparison, adding an additional layer of security by cross-verifying RFID tags with live facial scans.",
-"- Technologies Used: React.js, Node.js, MongoDB, Docker, and the Z11- 13.56MHz RFID Reader for a robust and scalable security solution.",
-"- GitHub: https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification"
+// "2 RFID-Based Campus Security System",
+// "- Developed a Secure Identification System: Designed and implemented an RFID based platform to enhance campus security by enabling real-time student status verification and guard authentication.",
+// "- Advanced Facial Recognition: Incorporated DeepFace for facial comparison, adding an additional layer of security by cross-verifying RFID tags with live facial scans.",
+// "- Technologies Used: React.js, Node.js, MongoDB, Docker, and the Z11- 13.56MHz RFID Reader for a robust and scalable security solution.",
+// "- GitHub: https://github.com/Manthan-Sinojiya/RFID---AI-Based-Student-Identification"
 ];
 
 const Projects = () => {
