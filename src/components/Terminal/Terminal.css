@@ -146,6 +146,29 @@ body {
   border-radius: 4px;
 }
 
+.blinking-dots {
+  display: inline-block; /* Allows span elements to be next to each other */
+}
+
+/* The keyframe animation for the blinking effect */
+@keyframes blink-dots {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Apply the animation to each dot with a slight delay */
+.blinking-dots .dot-1 {
+  animation: blink-dots 1s infinite;
+}
+
+.blinking-dots .dot-2 {
+  animation: blink-dots 1s infinite 0.2s; /* 0.2s delay */
+}
+
+.blinking-dots .dot-3 {
+  animation: blink-dots 1s infinite 0.4s; /* 0.4s delay */
+}
 /* ========================================= */
 /* TABLET STYLES (769px to 1024px) */
 /* ========================================= */

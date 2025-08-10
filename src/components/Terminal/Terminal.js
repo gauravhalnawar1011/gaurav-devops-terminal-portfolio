@@ -219,24 +219,76 @@ if (cmd.startsWith('wget')) {
           return newHistory;
         });
       });
-    } else {
-      const errorMsg = `bash: ${cmd}: command not found\n\nI can only provide information about Gaurav Halnawar from his portfolio.`;
-     simulateTyping(errorMsg, () => {
-       setHistory(prev => {
-         const newHistory = [...prev];
-         const typingIndex = newHistory.findIndex(item => item.type === 'typing');
-         if (typingIndex !== -1) {
-           newHistory[typingIndex] = {
-             text: errorMsg,
-             type: 'error'
-           };
-         }
-         return newHistory;
-       });
+    }    else {
+      // Command not found - show error flow
+      simulateTyping(`Command not found: ${cmd}`, () => {
+        setHistory(prev => {
+          const newHistory = [...prev];
+          const typingIndex = newHistory.findIndex(item => item.type === 'typing');
+          if (typingIndex !== -1) {
+            newHistory[typingIndex] = {
+              text: `Command not found: ${cmd}`,
+              type: 'error'
+            };
+          }
+          return newHistory;
+        });
 
+        setTimeout(() => {
+          setHistory(prev => {
+            const newHistory = [...prev];
+            // Add a new item for the fetching animation
+            newHistory.push({
+              text: `Fetching information from AI assistant...`,
+              type: 'fetching-animation'
+            });
+            return newHistory;
+          });
+
+          // Step 3: After another delay, replace the fetching animation with the typing effect
+          setTimeout(() => {
+            // Define the final message
+            const finalMessage = `I can only provide information about Gaurav Halanwar from his portfolio.`;
+
+            // Find the 'fetching-animation' item to replace it with the typing output
+            setHistory(prev => {
+              const newHistory = [...prev];
+              const fetchingIndex = newHistory.findIndex(item => item.type === 'fetching-animation');
+
+              if (fetchingIndex !== -1) {
+                // Replace the 'fetching-animation' item with a 'typing' item
+                newHistory[fetchingIndex] = {
+                  text: '', // Start with an empty string for the typing effect
+                  type: 'typing'
+                };
+              }
+              return newHistory;
+            });
+
+            // Now, start the typing simulation on the new 'typing' item
+            simulateTyping(finalMessage, () => {
+              setHistory(prev => {
+                const newHistory = [...prev];
+                const typingIndex = newHistory.findIndex(item => item.type === 'typing');
+
+                if (typingIndex !== -1) {
+                  // Once typing is complete, replace the 'typing' item with the final 'error' output
+                  newHistory[typingIndex] = {
+                    text: finalMessage,
+                    type: 'error'
+                  };
+                }
+                return newHistory;
+              });
+            });
+          }, 4000); // 4-second delay for the fetching animation
+        }, 1000); // 1-second delay before the fetching message appears
       });
     }
-  };
+  }
+
+
+
   useEffect(() => {
       const handleGlobalKeyDown = (e) => {
         if (e.ctrlKey && (e.key === 'c' || e.key === 'v')) {
@@ -330,11 +382,11 @@ if (cmd.startsWith('wget')) {
         <nav className="nav-links">
           Help | About | Projects | Skills | Experience | Contact | Education | Certifications | Sudo | Quote | Mission | Ascii | Wget | Clear
         </nav>
-        
-        <div className="terminal-body">
+<div className="terminal-body">
+
           {history.map((item, idx) => (
-            <div 
-              key={`${idx}-${item.id || ''}`} 
+            <div
+              key={`${idx}-${item.id || ''}`}
               className={`terminal-line ${item.type}`}
             >
               {item.type === 'command' ? (
@@ -347,6 +399,15 @@ if (cmd.startsWith('wget')) {
                   <span className="command-prompt">{PROMPT}</span>
                   <span className="typing-text">{item.text}</span>
                   <span className="typing-cursor"></span>
+                </div>
+              ) : item.type === 'fetching-animation' ? ( // <-- Here's the new logic
+                <div className="text-output fetching-animation">
+                  <span>Fetching information from AI assistant</span>
+                  <span className="blinking-dots">
+                    <span className="dot-1">.</span>
+                    <span className="dot-2">.</span>
+                    <span className="dot-3">.</span>
+                  </span>
                 </div>
               ) : item.component ? (
                 <div className="component-output">
@@ -364,6 +425,7 @@ if (cmd.startsWith('wget')) {
     <ContactForm onClose={() => setShowContactForm(false)} />
   </div>
 )}
+
 
           {showContactForm && (
             <div className="terminal-line">
